@@ -7,3 +7,6 @@ export const dependencyVersionMap = {
   "@sveltejs/adapter-vercel": "^5.4.4",
 } as const;
 export type AvailableDependencies = keyof typeof dependencyVersionMap;
+
+export const removableDependencies = "@sveltejs/adapter-auto";
+export type RemovableDependencies = typeof removableDependencies;

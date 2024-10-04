@@ -2,6 +2,7 @@ import { input, select } from "@inquirer/prompts";
 import chalk from "chalk";
 import gradient from "gradient-string";
 import { loadBaseTemplate } from "./loader";
+import { loadDeployVercel } from "./loader/deploy";
 
 async function main() {
   let coolGradient = gradient("red", "yellow", "white");
@@ -88,6 +89,10 @@ async function main() {
     database,
     deploy,
   });
+
+  if (deploy === "vercel") {
+    await loadDeployVercel(directory);
+  }
 }
 
 main().catch(console.error);

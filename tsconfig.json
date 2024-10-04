@@ -25,5 +25,5 @@
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false
   },
-  "exclude": ["test-output", "src/templates"]
+  "exclude": ["output", "src/templates"]
 }
