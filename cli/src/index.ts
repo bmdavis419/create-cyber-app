@@ -3,15 +3,33 @@ import chalk from "chalk";
 import gradient from "gradient-string";
 import { loadBaseTemplate } from "./loader";
 import { loadDeployVercel } from "./loader/deploy";
+import { Command } from "commander";
 
 async function main() {
   let coolGradient = gradient("red", "yellow", "white");
 
   console.log(coolGradient.multiline("Cyber App..."));
 
-  const directory = await input({
-    message: chalk.bgGreen.black("Enter a directory:"),
-  });
+  const program = new Command()
+    .name("Create Cyber App")
+    .description("A CLI for creating web applications with the cyber stack")
+    .argument(
+      "[dir]",
+      "The name of the application, as well as the name of the directory to create"
+    )
+    .parse(process.argv);
+
+  const args = program.args;
+
+  let directory = "";
+
+  if (args.length > 0) {
+    directory = args[0];
+  } else {
+    directory = await input({
+      message: chalk.bgGreen.black("Enter a directory:"),
+    });
+  }
 
   await loadBaseTemplate(directory);
 
@@ -77,8 +95,8 @@ async function main() {
         disabled: "COMING SOON",
       },
       {
-        name: "None",
-        value: "none",
+        name: "Auto",
+        value: "auto",
       },
     ],
   });
