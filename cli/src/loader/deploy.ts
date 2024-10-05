@@ -1,22 +1,13 @@
-import { join } from "path";
 import { addPackageDependency } from "../utils/addDependencies";
 import { removePackageDependency } from "../utils/removeDependencies";
+import { loadDirectory } from "../utils/loadDirectory";
 
-const VERCEL_SOURCE_PATH = "src/templates/deploy/vercel/svelte.config.js";
+const VERCEL_SOURCE_DIR = "src/templates/deploy/vercel";
+const VERCEL_SOURCE_ITEMS = ["svelte.config.js"];
 
 export const loadDeployVercel = async (projectDir: string) => {
   // load in the svelte.config.js file
-  const sourcePath = join(process.cwd(), VERCEL_SOURCE_PATH);
-  const destPath = join(process.cwd(), projectDir, "svelte.config.js");
-
-  try {
-    const file = Bun.file(sourcePath);
-    const contents = await file.arrayBuffer();
-    await Bun.write(destPath, contents);
-    console.log(`Successfully copied file svelte.config.js`);
-  } catch (error) {
-    console.error(`Error copying svelte.config.js:`, error);
-  }
+  await loadDirectory(VERCEL_SOURCE_DIR, projectDir, VERCEL_SOURCE_ITEMS);
 
   // update package json
   addPackageDependency({

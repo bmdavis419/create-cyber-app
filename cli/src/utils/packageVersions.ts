@@ -5,6 +5,10 @@
  */
 export const dependencyVersionMap = {
   "@sveltejs/adapter-vercel": "^5.4.4",
+  "drizzle-orm": "^0.33.0",
+  "drizzle-kit": "^0.24.2",
+  "@libsql/client": "^0.12.0",
+  dotenv: "^16.4.5",
 } as const;
 export type AvailableDependencies = keyof typeof dependencyVersionMap;
 

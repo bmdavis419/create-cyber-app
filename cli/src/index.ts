@@ -4,6 +4,7 @@ import gradient from "gradient-string";
 import { loadBaseTemplate } from "./loader";
 import { loadDeployVercel } from "./loader/deploy";
 import { Command } from "commander";
+import { loadDbSqlite } from "./loader/db";
 
 async function main() {
   let coolGradient = gradient("red", "yellow", "white");
@@ -108,6 +109,12 @@ async function main() {
     deploy,
   });
 
+  // DB
+  if (database === "turso") {
+    await loadDbSqlite(directory);
+  }
+
+  // DEPLOY
   if (deploy === "vercel") {
     await loadDeployVercel(directory);
   }
