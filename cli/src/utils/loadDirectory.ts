@@ -24,13 +24,13 @@ export const loadDirectory = async (
           join(destDir, item),
           subItems
         );
-        console.log(`Successfully copied directory ${item}`);
+        // console.log(`Successfully copied directory ${item}`);
       } else {
         // If it's a file, copy it
         const file = Bun.file(sourcePath);
         const contents = await file.arrayBuffer();
         await Bun.write(destPath, contents);
-        console.log(`Successfully copied file ${item}`);
+        // console.log(`Successfully copied file ${item}`);
       }
     } catch (error) {
       console.error(`Error copying ${item}:`, error);

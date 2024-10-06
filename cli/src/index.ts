@@ -5,6 +5,7 @@ import { loadBaseTemplate } from "./loader";
 import { loadDeployVercel } from "./loader/deploy";
 import { Command } from "commander";
 import { loadDbSqlite } from "./loader/db";
+import { loadAuthLucia } from "./loader/auth";
 
 async function main() {
   let coolGradient = gradient("red", "yellow", "white");
@@ -112,6 +113,11 @@ async function main() {
   // DB
   if (database === "turso") {
     await loadDbSqlite(directory);
+  }
+
+  // AUTH
+  if (auth === "lucia") {
+    await loadAuthLucia(directory);
   }
 
   // DEPLOY

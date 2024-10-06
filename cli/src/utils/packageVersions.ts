@@ -9,6 +9,9 @@ export const dependencyVersionMap = {
   "drizzle-kit": "^0.24.2",
   "@libsql/client": "^0.12.0",
   dotenv: "^16.4.5",
+  "@lucia-auth/adapter-drizzle": "^1.1.0",
+  arctic: "^1.9.2",
+  lucia: "^3.2.0",
 } as const;
 export type AvailableDependencies = keyof typeof dependencyVersionMap;
 
