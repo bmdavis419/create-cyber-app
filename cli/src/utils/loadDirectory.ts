@@ -14,8 +14,6 @@ export const loadDirectory = async (
     const sourcePath = join(PKG_ROOT, sourceDir, item);
     const destPath = join(destDir, item);
 
-    console.log("source", sourcePath);
-
     try {
       const stats = await stat(sourcePath);
 
