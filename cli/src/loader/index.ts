@@ -13,9 +13,9 @@ const BASE_ITEMS = [
 ];
 
 export const loadBaseTemplate = async (
-  destDir: string,
+  projectDir: string,
   sourceDir = SOURCE_DIR,
   items = BASE_ITEMS
 ) => {
-  await loadDirectory(sourceDir, destDir, items);
+  await loadDirectory(sourceDir, projectDir, items);
 };

@@ -12,7 +12,7 @@ export const loadDirectory = async (
 ) => {
   for (const item of items) {
     const sourcePath = join(PKG_ROOT, sourceDir, item);
-    const destPath = join(PKG_ROOT, destDir, item);
+    const destPath = join(destDir, item);
 
     console.log("source", sourcePath);
 

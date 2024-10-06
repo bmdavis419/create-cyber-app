@@ -18,8 +18,8 @@ export const addEnvVar = async (opts: {
 }) => {
   const { envVars, projectDir } = opts;
 
-  const envPath = join(PKG_ROOT, projectDir, ".env");
-  const envExamplePath = join(PKG_ROOT, projectDir, ".env.example");
+  const envPath = join(projectDir, ".env");
+  const envExamplePath = join(projectDir, ".env.example");
 
   for (const envVar of envVars) {
     await appendFile(envPath, envVarsMap[envVar]);

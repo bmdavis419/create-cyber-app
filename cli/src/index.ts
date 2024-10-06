@@ -1,4 +1,5 @@
 import { input, select } from "@inquirer/prompts";
+import { resolve } from "path";
 import chalk from "chalk";
 import gradient from "gradient-string";
 import { loadBaseTemplate } from "./loader";
@@ -6,6 +7,7 @@ import { loadDeployVercel } from "./loader/deploy";
 import { Command } from "commander";
 import { loadDbSqlite } from "./loader/db";
 import { loadAuthLucia } from "./loader/auth";
+import { utimes } from "fs-extra";
 
 async function main() {
   let coolGradient = gradient("red", "yellow", "white");
@@ -33,7 +35,9 @@ async function main() {
     });
   }
 
-  await loadBaseTemplate(directory);
+  const projectDir = resolve(process.cwd(), directory);
+
+  await loadBaseTemplate(projectDir);
 
   const auth = await select({
     message: chalk.yellowBright("Select an auth provider"),
@@ -112,17 +116,17 @@ async function main() {
 
   // DB
   if (database === "turso") {
-    await loadDbSqlite(directory);
+    await loadDbSqlite(projectDir);
   }
 
   // AUTH
   if (auth === "lucia") {
-    await loadAuthLucia(directory);
+    await loadAuthLucia(projectDir);
   }
 
   // DEPLOY
   if (deploy === "vercel") {
-    await loadDeployVercel(directory);
+    await loadDeployVercel(projectDir);
   }
 }
 
