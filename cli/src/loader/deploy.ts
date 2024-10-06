@@ -2,7 +2,7 @@ import { addPackageDependency } from "../utils/addDependencies";
 import { removePackageDependency } from "../utils/removeDependencies";
 import { loadDirectory } from "../utils/loadDirectory";
 
-const VERCEL_SOURCE_DIR = "src/templates/deploy/vercel";
+const VERCEL_SOURCE_DIR = "templates/deploy/vercel";
 const VERCEL_SOURCE_ITEMS = ["svelte.config.js"];
 
 export const loadDeployVercel = async (projectDir: string) => {

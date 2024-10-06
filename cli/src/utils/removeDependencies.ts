@@ -1,7 +1,6 @@
 import path from "path";
 import fs from "fs-extra";
 import sortPackageJson from "sort-package-json";
-import { type PackageJson } from "type-fest";
 import { type RemovableDependencies } from "./packageVersions";
 
 export const removePackageDependency = (opts: {
@@ -11,9 +10,7 @@ export const removePackageDependency = (opts: {
 }) => {
   const { dependencies, devMode, projectDir } = opts;
 
-  const pkgJson = fs.readJSONSync(
-    path.join(projectDir, "package.json")
-  ) as PackageJson;
+  const pkgJson = fs.readJSONSync(path.join(projectDir, "package.json"));
 
   dependencies.forEach((pkgName) => {
     if (devMode && pkgJson.devDependencies) {

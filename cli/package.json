@@ -4,12 +4,15 @@
   "type": "module",
   "scripts": {
     "dev:clear": "rm -r output",
-    "dev": "bun run src/index.ts output"
+    "dev": "tsup",
+    "build:bun": "bun build ./src/index.ts --outdir ./build --target node",
+    "build": "tsup"
   },
   "devDependencies": {
     "@types/bun": "latest",
     "@types/fs-extra": "^11.0.4",
-    "@types/gradient-string": "^1.1.6"
+    "@types/gradient-string": "^1.1.6",
+    "tsup": "^8.3.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

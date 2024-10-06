@@ -1,7 +1,6 @@
 import path from "path";
 import fs from "fs-extra";
 import sortPackageJson from "sort-package-json";
-import { type PackageJson } from "type-fest";
 import {
   dependencyVersionMap,
   type AvailableDependencies,
@@ -14,9 +13,7 @@ export const addPackageDependency = (opts: {
 }) => {
   const { dependencies, devMode, projectDir } = opts;
 
-  const pkgJson = fs.readJSONSync(
-    path.join(projectDir, "package.json")
-  ) as PackageJson;
+  const pkgJson = fs.readJSONSync(path.join(projectDir, "package.json"));
 
   dependencies.forEach((pkgName) => {
     const version = dependencyVersionMap[pkgName];

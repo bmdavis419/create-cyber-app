@@ -2,7 +2,7 @@ import { addPackageDependency } from "../utils/addDependencies";
 import { addEnvVar } from "../utils/addEnvVars";
 import { loadDirectory } from "../utils/loadDirectory";
 
-const LUCIA_SOURCE_DIR = "src/templates/auth/lucia";
+const LUCIA_SOURCE_DIR = "templates/auth/lucia";
 const LUCIA_SOURCE_ITEMS = ["src"];
 
 export const loadAuthLucia = async (projectDir: string) => {

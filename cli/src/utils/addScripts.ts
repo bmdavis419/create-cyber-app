@@ -1,5 +1,4 @@
 import sortPackageJson from "sort-package-json";
-import { type PackageJson } from "type-fest";
 import path from "path";
 import fs from "fs-extra";
 
@@ -16,9 +15,7 @@ export const addScript = (opts: {
 }) => {
   const { scripts, projectDir } = opts;
 
-  const pkgJson = fs.readJSONSync(
-    path.join(projectDir, "package.json")
-  ) as PackageJson;
+  const pkgJson = fs.readJSONSync(path.join(projectDir, "package.json"));
 
   scripts.forEach((script) => {
     const scriptValue = scriptsMap[script];

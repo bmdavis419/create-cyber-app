@@ -7,7 +7,6 @@
     "moduleDetection": "force",
     "jsx": "react-jsx",
     "allowJs": true,
-    "rootDir": "src",
 
     // Bundler mode
     "moduleResolution": "bundler",
@@ -25,5 +24,6 @@
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false
   },
-  "exclude": ["output", "src/templates"]
+  "include": ["src", "tsup.config.ts", "../reset.d.ts", "prettier.config.mjs"],
+  "exclude": ["output", "templates"]
 }

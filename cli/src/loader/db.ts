@@ -3,7 +3,7 @@ import { addEnvVar } from "../utils/addEnvVars";
 import { addScript } from "../utils/addScripts";
 import { loadDirectory } from "../utils/loadDirectory";
 
-const SQLITE_SOURCE_DIR = "src/templates/db/sqlite";
+const SQLITE_SOURCE_DIR = "templates/db/sqlite";
 const SQLITE_SOURCE_ITEMS = ["drizzle.config.ts", "src"];
 
 export const loadDbSqlite = async (projectDir: string) => {
