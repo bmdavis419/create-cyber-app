@@ -1,6 +1,7 @@
 import { appendFile } from "fs/promises";
 
 import { join } from "path";
+import { PKG_ROOT } from "../consts";
 
 export const envVarsMap = {
   sqlite_db_url: 'DATABASE_URL="file:local.db"\n',
@@ -17,8 +18,8 @@ export const addEnvVar = async (opts: {
 }) => {
   const { envVars, projectDir } = opts;
 
-  const envPath = join(process.cwd(), projectDir, ".env");
-  const envExamplePath = join(process.cwd(), projectDir, ".env.example");
+  const envPath = join(PKG_ROOT, projectDir, ".env");
+  const envExamplePath = join(PKG_ROOT, projectDir, ".env.example");
 
   for (const envVar of envVars) {
     await appendFile(envPath, envVarsMap[envVar]);

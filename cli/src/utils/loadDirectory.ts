@@ -1,6 +1,7 @@
 import { join } from "path";
 import { mkdir, readdir, stat } from "fs/promises";
 import fs from "fs-extra";
+import { PKG_ROOT } from "../consts";
 
 // this function will load everything from the provided template directory
 // into the provided destination directory
@@ -10,8 +11,8 @@ export const loadDirectory = async (
   items: string[]
 ) => {
   for (const item of items) {
-    const sourcePath = join(process.cwd(), sourceDir, item);
-    const destPath = join(process.cwd(), destDir, item);
+    const sourcePath = join(PKG_ROOT, sourceDir, item);
+    const destPath = join(PKG_ROOT, destDir, item);
 
     console.log("source", sourcePath);
 
@@ -30,9 +31,6 @@ export const loadDirectory = async (
         console.log(`Successfully copied directory ${item}`);
       } else {
         // If it's a file, copy it
-        // const file = Bun.file(sourcePath);
-        // const contents = await file.arrayBuffer();
-        // await Bun.write(destPath, contents);
         fs.copySync(sourcePath, destPath);
         console.log(`Successfully copied file ${item}`);
       }
