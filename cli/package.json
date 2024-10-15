@@ -1,6 +1,6 @@
 {
   "name": "create-cyber-app",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Create web application with the cyber stack",
   "license": "MIT",
   "author": {
@@ -36,6 +36,7 @@
   "scripts": {
     "dev:clear": "rm -r output",
     "dev": "tsup",
+    "start": "node dist/index.js",
     "build": "tsup",
     "pub:release": "pnpm build && npm publish"
   },
