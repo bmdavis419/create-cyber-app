@@ -10,6 +10,8 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
+.svelte-kit/
+
 output/
 output
 
