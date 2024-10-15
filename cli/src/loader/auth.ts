@@ -9,13 +9,8 @@ export const loadAuthLucia = async (projectDir: string) => {
   await loadDirectory(LUCIA_SOURCE_DIR, projectDir, LUCIA_SOURCE_ITEMS);
 
   addPackageDependency({
-    dependencies: ["@lucia-auth/adapter-drizzle", "arctic"],
+    dependencies: ["@oslojs/crypto", "@oslojs/encoding", "arctic"],
     devMode: false,
-    projectDir,
-  });
-  addPackageDependency({
-    dependencies: ["lucia"],
-    devMode: true,
     projectDir,
   });
 

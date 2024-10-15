@@ -7,12 +7,14 @@ import { loadDeployVercel } from "./loader/deploy";
 import { Command } from "commander";
 import { loadDbSqlite } from "./loader/db";
 import { loadAuthLucia } from "./loader/auth";
-import { utimes } from "fs-extra";
 
 async function main() {
   let coolGradient = gradient("red", "yellow", "white");
 
   console.log(coolGradient.multiline("Cyber App..."));
+
+  console.log("THIS IS VERY EARLY AND NOT FULLY BUILT");
+  console.log("Please let me know if you have any feedback or ideas!");
 
   const program = new Command()
     .name("Create Cyber App")
@@ -43,12 +45,13 @@ async function main() {
     message: chalk.yellowBright("Select an auth provider"),
     choices: [
       {
-        name: "Lucia",
+        name: "Lucia (Custom Auth)",
         value: "lucia",
       },
       {
         name: "Supabase",
         value: "supabase",
+        disabled: "COMING SOON",
       },
       {
         name: "None",
@@ -67,10 +70,12 @@ async function main() {
       {
         name: "MySQL (Planetscale)",
         value: "planetscale",
+        disabled: "COMING SOON",
       },
       {
         name: `Postgres (Supabase) ${auth === "supabase" ? "RECOMMENDED" : ""}`,
         value: "supabase",
+        disabled: "COMING SOON",
       },
       {
         name: "None",
@@ -84,16 +89,18 @@ async function main() {
     message: "Select your deploy provider",
     choices: [
       {
-        name: "SST",
-        value: "sst",
-      },
-      {
         name: "Vercel",
         value: "vercel",
       },
       {
+        name: "SST",
+        value: "sst",
+        disabled: "COMING SOON",
+      },
+      {
         name: "Docker",
         value: "docker",
+        disabled: "COMING SOON",
       },
       {
         name: "Netlify",
@@ -107,12 +114,10 @@ async function main() {
     ],
   });
 
-  console.log("User responses:", {
-    directory,
-    auth,
-    database,
-    deploy,
-  });
+  console.log("GENERATING PROJECT in", directory);
+  console.log("AUTH:", auth);
+  console.log("DB:", database);
+  console.log("DEPLOY:", deploy);
 
   // DB
   if (database === "turso") {

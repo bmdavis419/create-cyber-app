@@ -26,11 +26,9 @@ export const loadDirectory = async (
           join(destDir, item),
           subItems
         );
-        console.log(`Successfully copied directory ${item}`);
       } else {
         // If it's a file, copy it
         fs.copySync(sourcePath, destPath);
-        console.log(`Successfully copied file ${item}`);
       }
     } catch (error) {
       console.error(`Error copying ${item}:`, error);

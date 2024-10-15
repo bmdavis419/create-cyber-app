@@ -3,6 +3,10 @@
   "version": "0.1.2",
   "description": "Create web application with the cyber stack",
   "license": "MIT",
+  "author": {
+    "name": "Ben Davis",
+    "url": "https://davis7.sh"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/bmdavis419/create-cyber-app.git",
@@ -36,7 +40,6 @@
     "pub:release": "pnpm build && npm publish"
   },
   "devDependencies": {
-    "@types/bun": "latest",
     "@types/fs-extra": "^11.0.4",
     "@types/gradient-string": "^1.1.6",
     "tsup": "^8.3.0"

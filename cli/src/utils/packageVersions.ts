@@ -11,7 +11,8 @@ export const dependencyVersionMap = {
   dotenv: "^16.4.5",
   "@lucia-auth/adapter-drizzle": "^1.1.0",
   arctic: "^1.9.2",
-  lucia: "^3.2.0",
+  "@oslojs/crypto": "^1.0.1",
+  "@oslojs/encoding": "^1.1.0",
 } as const;
 export type AvailableDependencies = keyof typeof dependencyVersionMap;
 
