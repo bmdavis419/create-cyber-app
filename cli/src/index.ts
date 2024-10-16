@@ -6,13 +6,13 @@ import gradient from "gradient-string";
 import { loadBaseTemplate } from "./loader";
 import { loadDeployVercel } from "./loader/deploy";
 import { Command } from "commander";
-import { loadDbSqlite } from "./loader/db";
+import { loadDbPostgres, loadDbSqlite } from "./loader/db";
 import { loadAuthLucia } from "./loader/auth";
 
 async function main() {
-  let coolGradient = gradient("red", "yellow", "white");
+  let newGradient = gradient("green", "white", "purple");
 
-  console.log(coolGradient.multiline("Cyber App..."));
+  console.log(newGradient.multiline("Cyber App..."));
 
   console.log("THIS IS VERY EARLY AND NOT FULLY BUILT");
   console.log("Please let me know if you have any feedback or ideas!");
@@ -67,6 +67,11 @@ async function main() {
       {
         name: "Sqlite (Turso)",
         value: "turso",
+      },
+
+      {
+        name: `Postgres (Plain)`,
+        value: "postgres",
       },
       {
         name: "MySQL (Planetscale)",
@@ -123,6 +128,10 @@ async function main() {
   // DB
   if (database === "turso") {
     await loadDbSqlite(projectDir);
+  }
+
+  if (database === "postgres") {
+    await loadDbPostgres(projectDir);
   }
 
   // AUTH

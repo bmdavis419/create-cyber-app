@@ -5,6 +5,9 @@ import fs from "fs-extra";
 export const scriptsMap = {
   "db:push": "drizzle-kit push",
   "db:studio": "drizzle-kit studio",
+  "db:generate": "drizzle-kit generate",
+  "db:migrate": "drizzle-kit migrate",
+  "dev:sst": "sst dev",
 } as const;
 
 export type AvailableScripts = keyof typeof scriptsMap;
